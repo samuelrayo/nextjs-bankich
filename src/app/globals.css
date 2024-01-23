@@ -2,26 +2,120 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+html{
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+/* background-image: linear-gradient(180deg, #000405 31%, #80D0C7 99%); */
+background: linear-gradient(to top, #30cfd0 0%, #330867 100%) no-repeat ;
+background-attachment: fixed;
+/* background-image: linear-gradient(to top, #1e3c72 0%, #1e3c72 1%, #2a5298 100%); */
+/* background-image: linear-gradient(-225deg, #473B7B 0%, #3584A7 51%, #30D2BE 100%); */
+}
+
+.barB{
+  box-shadow: 0 25px 45px  rgba(0, 0, 0, .2);
+  border: 2px solid rgba(255, 255, 255, .1);
+  backdrop-filter: blur(16px);
+  background-color: rgba(255,255,255,.08);
+}
+.buttonGradient{
+  background: linear-gradient(160deg, rgba(84,208,255,1) 44%, rgba(208,104,255,1) 92%);
+}
+.buttonGradient {
+  color: black;
+  transition: transform 250ms cubic-bezier(.2,.8,.4,1);
   }
+
+
+
+.company-image {
+  filter: grayscale(100%); /* Convierte la imagen a blanco y negro */
+  transition: filter 0.3s;
+
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+
+
+
+.exampleClass {
+    padding: 12px 24px;
+    background-color: #abfffb;
+    border-radius: 6px;
+    position: relative;
+    overflow: hidden;
 }
+
+.exampleClass span {
+    color: black;
+    position: relative;
+    z-index: 1;
+    transition: color 0.6s cubic-bezier(0.53, 0.21, 0, 1);
+}
+
+.animatedLine{
+  position: relative;
+}
+.animatedLine::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px; /* Altura de la línea */
+  background-color: #30cfd0;
+  transition: width 0.4s ease-in-out;
+}
+.animatedLine:hover::before {
+  width: 100%;
+}
+.ReactCollapse--collapse {
+  transition: height 500ms;
+}
+@media (min-width: 768px){
+  .buttonGradient:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s;
+    }
+.buttonGradient:active {
+	transform: scale(0.9);
+  transition: transform 0.3s;
+}
+.image-container:hover .company-image {
+  filter: grayscale(0%); /* Devuelve la imagen a color al hacer hover */
+/* Opcional: agranda la imagen al hacer hover */
+  scale: 1.1;
+  transition: scale 0.6s;
+}
+.exampleClass:hover span {
+    color: white;
+}
+.exampleClass::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    border-radius: 6px;
+    transform: translate(-100%, -50%);
+    width: 100%;
+    height: 100%;
+    background-color: hsl(244, 63%, 69%);
+    transition: transform 0.6s cubic-bezier(0.53, 0.21, 0, 1);
+}
+
+
+.exampleClass:hover::before {
+    transform: translate(0, -50%);
+}
+
+}
+
