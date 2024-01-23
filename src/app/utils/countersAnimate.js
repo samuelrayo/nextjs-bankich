@@ -36,11 +36,13 @@ function CountersAnimate({ value }) {
 
   return (
     <span ref={countRef}>
-      {isIntersecting ? (
+      {isIntersecting
+        ? (
         <CountUp start={0} end={value} delay={0} duration={4} />
-      ) : (
-        '0'
-      )}
+          )
+        : (
+            '0'
+          )}
     </span>
   )
 }
